@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
-    Copyright (c) 2009, 2016 Xored Software Inc and others.
+    Copyright (c) 2009, 2019 Xored Software Inc and others.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -13,17 +13,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <version>2.2.0-SNAPSHOT</version>
+  <version>2.4.3-SNAPSHOT</version>
   <groupId>org.eclipse.rcptt.rap.tests</groupId>
   <artifactId>tests</artifactId>
   <packaging>rcpttTest</packaging>
 
   <properties>
-    <rcpttRepo>http://download.eclipse.org/rcptt/nightly/2.2.0/latest/repository</rcpttRepo>
+    <rcpttRepo>http://download.eclipse.org/rcptt/nightly/2.4.3/latest/repository</rcpttRepo>
     <rcptt-maven-group>org.eclipse.rcptt</rcptt-maven-group>
-    <rcptt-maven-version>2.2.0-SNAPSHOT</rcptt-maven-version>
+    <rcptt-maven-version>2.4.3-SNAPSHOT</rcptt-maven-version>
     <rcptt-maven-plugin>rcptt-maven-plugin</rcptt-maven-plugin>
-    <runner-version>2.2.0-SNAPSHOT</runner-version>
+    <runner-version>2.4.3-SNAPSHOT</runner-version>
     <autRepository>file://${basedir}/../modules/repository/target/repository</autRepository>
     <runtimeRepository>file:/${user.dir}/runtime/updates/org.eclipse.rcptt.updates.runtime.e4x/q7</runtimeRepository>
   </properties>
@@ -42,7 +42,7 @@
       <name>RCPTT Maven repository Snapshots</name>
       <url>https://repo.eclipse.org/content/repositories/rcptt-snapshots/</url>
     </pluginRepository>
-  </pluginRepositories> 
+  </pluginRepositories>
 
   <build>
     <plugins>
@@ -59,10 +59,10 @@
               <arg>-consoleLog</arg>
             </args>
             <rap>
-                <port>10082</port>
-                <servletPath>/</servletPath>
-		<!--<browserCmd>DISPLAY=:1001 nohup firefox %s </browserCmd> -->
-    </rap>
+              <port>10082</port>
+              <servletPath>/</servletPath>
+              <!--<browserCmd>DISPLAY=:1001 nohup firefox %s </browserCmd> -->
+            </rap>
           </aut>
           <runner>
             <platform>rap</platform>
