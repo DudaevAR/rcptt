@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.eclipse.rcptt.ecl.core.CorePackage#getProc()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Declares a new procedure in a context of current ECL session, which can later be accessed as a usual command.' returns='An output of a <code>body</code> script' example='// example 1\n// declaration:\nproc \"click-button\" [val window] [val button] {\n   get-window $window | get-button $button | click\n}\n\n// usage\nclick-button \"New Project\" \"Cancel\"\n\n// example #2, using input argument and default value\n// declaration:\nproc \"set-text-after-label\" [val parent -input] [val label] [val text \"\"] {\n\t$parent | get-editbox -after [get-label $label] | set-text $text\n}\n\n// usage:\nwith [get-window \"New Project\"] {\n   set-text-after-label \"Name:\" \"Sample Project\"\n}\nget-editor | set-text-after-label \"Text\"'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Declares a new procedure in a context of current ECL session, which can later be accessed as a usual command.' returns='An output of a &lt;code&gt;body&lt;/code&gt; script' example='// example 1\n// declaration:\nproc \"click-button\" [val window] [val button] {\n   get-window $window | get-button $button | click\n}\n\n// usage\nclick-button \"New Project\" \"Cancel\"\n\n// example #2, using input argument and default value\n// declaration:\nproc \"set-text-after-label\" [val parent -input] [val label] [val text \"\"] {\n\t$parent | get-editbox -after [get-label $label] | set-text $text\n}\n\n// usage:\nwith [get-window \"New Project\"] {\n   set-text-after-label \"Name:\" \"Sample Project\"\n}\nget-editor | set-text-after-label \"Text\"'"
  * @generated
  */
 public interface Proc extends Command {

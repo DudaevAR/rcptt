@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -98,6 +98,7 @@ public class LiteralParameterImpl extends ParameterImpl implements LiteralParame
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}
@@ -107,6 +108,7 @@ public class LiteralParameterImpl extends ParameterImpl implements LiteralParame
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLiteral(String newLiteral) {
 		String oldLiteral = literal;
 		literal = newLiteral;
@@ -119,6 +121,7 @@ public class LiteralParameterImpl extends ParameterImpl implements LiteralParame
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFormat() {
 		return format;
 	}
@@ -128,6 +131,7 @@ public class LiteralParameterImpl extends ParameterImpl implements LiteralParame
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFormat(String newFormat) {
 		String oldFormat = format;
 		format = newFormat;
@@ -212,7 +216,7 @@ public class LiteralParameterImpl extends ParameterImpl implements LiteralParame
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (literal: ");
 		result.append(literal);
 		result.append(", format: ");

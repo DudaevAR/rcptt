@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -50,6 +50,7 @@ public interface MouseAction extends Command {
 	 * @see #setControl(ControlHandler)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.diagram.DiagramPackage#getMouseAction_Control()
 	 * @model required="true"
+	 *        annotation="http://www.eclipse.org/ecl/input"
 	 *        annotation="http://www.eclipse.org/ecl/docs description='Canvas, edit part or figure.'"
 	 * @generated
 	 */
@@ -130,7 +131,7 @@ public interface MouseAction extends Command {
 	 * @return the value of the '<em>Mask</em>' attribute.
 	 * @see #setMask(String)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.diagram.DiagramPackage#getMouseAction_Mask()
-	 * @model annotation="http://www.eclipse.org/ecl/docs default='0'"
+	 * @model annotation="http://www.eclipse.org/ecl/docs default='0' description='Plus-separated pressed metakeys. Example: ALT+SHIFT. Also could be a numeric value of org.eclipse.swt.widgets.Event.stateMask.'"
 	 * @generated
 	 */
 	String getMask();

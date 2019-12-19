@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -11,7 +11,9 @@
 package org.eclipse.rcptt.ecl.internal.core;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
@@ -65,50 +67,56 @@ public class ProcessStatusConverter implements
 	}
 
 	public static Throwable getThrowable(EclException exception) {
+		if (exception == null)
+			return null;
 		Throwable th = null;
 		try {
 			// Try to restore stored exception.
 			th = exception.getThrowable();
+			if (!Objects.equals(th.getClass().getName(), exception.getClassName())) {
+				throw new IllegalStateException(String.format("Bad class, expected: %s, actual: %s ", exception.getClassName(), th.getClass().getName()));
+			}
 		} catch (Throwable ee) {
 			// Failed to restore exception, try to construct new one
 			try {
 				String className = exception.getClassName();
 				Class<?> forName = Class.forName(className);
-				if (forName != null) {
+				try {
 					Constructor<?> constructor = forName.getConstructor(
 							String.class, Throwable.class);
-					if (constructor != null) {
-						Throwable newInstance = (Throwable) constructor
-								.newInstance(exception.getMessage(), null);
-						if (newInstance != null) {
-							EList<EclStackTraceEntry> list = exception
-									.getStackTrace();
-							if (list.size() > 0) {
-								newInstance.setStackTrace(constructStack(list));
-								th = newInstance;
-							}
-						}
-					}
+					Throwable newInstance = (Throwable) constructor
+							.newInstance(exception.getMessage(), getThrowable(exception.getCause()));
+					th = newInstance;
+				} catch (NoSuchMethodException  e) {
+					if (exception.getStatus() == null)
+						throw e;
+					Constructor<?> constructor = forName.getConstructor(IStatus.class);
+					Throwable newInstance = (Throwable) constructor
+							.newInstance(toIStatus(exception.getStatus()));
+					th = newInstance;
+					th.addSuppressed(e);
 				}
-			} catch (Throwable eee) {
-				Exception newex = new Exception(exception.getMessage(), null);
-				EList<EclStackTraceEntry> list = exception.getStackTrace();
-				if (list.size() > 0) {
-					newex.setStackTrace(constructStack(list));
-					th = newex;
+				th.addSuppressed(ee);
+			} catch (Exception eee) {
+				if (exception.getStatus() != null) {
+					th = new CoreException(toIStatus(exception.getStatus()));
+				} else {
+					th = new Exception(exception.getMessage(), getThrowable(exception.getCause()));
 				}
+				th.addSuppressed(eee);
 			}
 		}
 		if (th != null) {
-			EList<EclStackTraceEntry> list = exception.getStackTrace();
-			if (list.size() > 0) {
-				th.setStackTrace(constructStack(list));
-			}
-		}
-		if (exception.getCause() != null) {
-			th.initCause(getThrowable(exception.getCause()));
+			copyAttributesFromEObject(exception, th);
 		}
 		return th;
+	}
+
+	private static void copyAttributesFromEObject(EclException exception, Throwable newInstance) {
+		EList<EclStackTraceEntry> list = exception.getStackTrace();
+		if (list.size() > 0) {
+			newInstance.setStackTrace(constructStack(list));
+		}
 	}
 
 	private static StackTraceElement[] constructStack(EList<EclStackTraceEntry> list) {
@@ -206,6 +214,9 @@ public class ProcessStatusConverter implements
 		Throwable cause = exception.getCause();
 		if (cause != null) {
 			ex.setCause(toException(cause));
+		}
+		if (exception instanceof CoreException) {
+			ex.setStatus(toProcessStatus(((CoreException) exception).getStatus()));
 		}
 		return ex;
 	}

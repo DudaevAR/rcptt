@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see org.eclipse.rcptt.ecl.core.CorePackage#getForeach()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Reads objects from input pipe and for each object executes a given <code>do</code> command for each item. An optional variable declaration to hold a current value can be passed, if it is not passed, then current value is sent into an input pipe of a <code>do</code> command.  ' returns='An aggregated output of <code>do</code> command' example='// Implicit item: sent to an input pipe of inner script\nlist-launch-configurations | foreach { get name | log }\n\n// Explicit item:\nlist-launch-configuration | foreach [val item] {\n   $item | get-name | log\n}'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Reads objects from input pipe and for each object executes a given &lt;code&gt;do&lt;/code&gt; command for each item. An optional variable declaration to hold a current value can be passed, if it is not passed, then current value is sent into an input pipe of a &lt;code&gt;do&lt;/code&gt; command.  ' returns='An aggregated output of &lt;code&gt;do&lt;/code&gt; command' example='// Implicit item: sent to an input pipe of inner script\nlist-launch-configurations | foreach { get name | log }\n\n// Explicit item:\nlist-launch-configuration | foreach [val item] {\n   $item | get-name | log\n}'"
  * @generated
  */
 public interface Foreach extends Command {
@@ -123,7 +123,7 @@ public interface Foreach extends Command {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Input</em>' reference list.
 	 * @see org.eclipse.rcptt.ecl.core.CorePackage#getForeach_Input()
-	 * @model
+	 * @model annotation="http://www.eclipse.org/ecl/input"
 	 * @generated
 	 */
 	EList<EObject> getInput();

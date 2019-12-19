@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -17,6 +17,8 @@ import org.eclipse.rcptt.tesla.core.protocol.raw.Element;
 import org.eclipse.rcptt.tesla.core.protocol.raw.ResponseStatus;
 
 public class ControlUIElement extends BasicUIElement {
+	private static final int EMPTY_MASK = 0;
+
 	private static class Selector {
 		public UISelector<ControlUIElement> menu;
 		public UISelector<ControlUIElement> region;
@@ -116,23 +118,24 @@ public class ControlUIElement extends BasicUIElement {
 	}
 
 	public void click() {
-		click(false, false, false);
+		click(false, false, false, EMPTY_MASK);
 	}
 
 	public void clickArrow() {
-		click(false, false, true);
+		click(false, false, true, EMPTY_MASK);
 	}
 
 	public void click(boolean defaultClick) {
-		click(false, defaultClick, false);
+		click(false, defaultClick, false, EMPTY_MASK);
 	}
 
-	public void click(boolean wait, boolean defaultClick, boolean arrow) {
+	public void click(boolean wait, boolean defaultClick, boolean arrow, int metaKeys) {
 		Click click = factory.createClick();
 		click.setElement(getElement());
 		click.setDefault(defaultClick);
 		click.setWithWait(wait);
 		click.setArrow(arrow);
+		click.setMetaKeys(metaKeys);
 		player.safeExecuteCommand(click);
 	}
 
@@ -145,11 +148,11 @@ public class ControlUIElement extends BasicUIElement {
 
 	// Click and wait for context to be same if it is changed.
 	public void clickAndWait() {
-		clickAndWait(false);
+		clickAndWait(false, EMPTY_MASK);
 	}
 
-	public void clickAndWait(boolean defaultClick) {
-		click(true, defaultClick, false);
+	public void clickAndWait(boolean defaultClick, int metaKeys) {
+		click(true, defaultClick, false, metaKeys);
 	}
 
 	public void clickArrowAndWait() {
@@ -157,7 +160,7 @@ public class ControlUIElement extends BasicUIElement {
 	}
 
 	public void clickArrowAndWait(boolean defaultClick) {
-		click(true, defaultClick, true);
+		click(true, defaultClick, true, EMPTY_MASK);
 	}
 
 	public void doubleClick() {

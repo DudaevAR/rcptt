@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -30,7 +30,7 @@ import org.eclipse.rcptt.ecl.core.Command;
  * </ul>
  *
  * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getGetProperty()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Gets property of UI control. Assertion mode and assertion window can be used for discovering of actual property names' returns='Property handler for further verification (like during recording), or actual property value as string, when <code>-raw</code> option is specified' recorded='true' example='get-view Tasks | get-tree | get-property itemCount | equals 1 | verify-true'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Gets property of UI control. Assertion mode and assertion window can be used for discovering of actual property names' returns='Property handler for further verification (like during recording), or actual property value as string, when &lt;code&gt;-raw&lt;/code&gt; option is specified' recorded='true' example='get-view Tasks | get-tree | get-property itemCount | equals 1 | verify-true'"
  * @generated
  */
 public interface GetProperty extends Command {
@@ -46,6 +46,7 @@ public interface GetProperty extends Command {
 	 * @see #setObject(EObject)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getGetProperty_Object()
 	 * @model required="true"
+	 *        annotation="http://www.eclipse.org/ecl/input"
 	 *        annotation="http://www.eclipse.org/ecl/docs description='UI control to get property from'"
 	 * @generated
 	 */

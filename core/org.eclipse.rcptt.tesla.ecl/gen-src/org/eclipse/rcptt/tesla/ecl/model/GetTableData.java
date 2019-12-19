@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -25,7 +25,7 @@ package org.eclipse.rcptt.tesla.ecl.model;
  * </ul>
  *
  * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getGetTableData()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Takes a data from table or tree and returns <code>Table</code> EMF object. When table or tree does not have columns, then it is assumed that there\'s one column named \'text\'.' returns='<code>Table</code> object' recorded='false' example='get-table | get-table-data | write-csv-file \"workspace:/project/file.csv\"'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Takes a data from table or tree and returns &lt;code&gt;Table&lt;/code&gt; EMF object. When table or tree does not have columns, then it is assumed that there\'s one column named \'text\'.' returns='&lt;code&gt;Table&lt;/code&gt; object' recorded='false' example='get-table | get-table-data | write-csv-file \"workspace:/project/file.csv\"'"
  * @generated
  */
 public interface GetTableData extends ControlCommand {
@@ -43,7 +43,7 @@ public interface GetTableData extends ControlCommand {
 	 * @see #setIncludeChecked(boolean)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getGetTableData_IncludeChecked()
 	 * @model default="false"
-	 *        annotation="http://www.eclipse.org/ecl/docs description='When true, adds a column named \'checked\' which contains <code>true</code> or <code>false</code> depending on checked state of row'"
+	 *        annotation="http://www.eclipse.org/ecl/docs description='When true, adds a column named \'checked\' which contains &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt; depending on checked state of row'"
 	 * @generated
 	 */
 	boolean isIncludeChecked();

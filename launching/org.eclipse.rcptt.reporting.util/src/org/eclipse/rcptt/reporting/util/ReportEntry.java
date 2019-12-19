@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -64,8 +64,7 @@ public final class ReportEntry {
 		Node root = next.getRoot();
 		Q7Info info = ReportHelper.getInfo(root);
 		StringWriter writer = new StringWriter();
-		new RcpttReportGenerator(new PrintWriter(writer), new ArrayList<ImageEntry>()).writeResult(0,
-				info.getResult());
+		RcpttReportGenerator.writeResult(new PrintWriter(writer), 0, info.getResult());
 		ReportEntry entry = new ReportEntry(root.getName(), info.getId(), (int) root.getDuration(),
 				info.getResult().getSeverity(), writer.toString());
 		return entry;

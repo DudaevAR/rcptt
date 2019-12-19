@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="RCPTT Runner" uid="org.eclipse.rcptt.runner.headless" id="org.eclipse.rcptt.runner.product" application="org.eclipse.rcptt.runner.headless" version="2.4.3.qualifier" useFeatures="false" includeLaunchers="false">
+<product name="RCPTT Runner" uid="org.eclipse.rcptt.runner.headless" id="org.eclipse.rcptt.runner.product" application="org.eclipse.rcptt.runner.headless" version="2.5.0.qualifier" useFeatures="false" includeLaunchers="false">
 
    <configIni use="default">
    </configIni>
@@ -46,9 +46,10 @@
       <plugin id="org.apache.ant"/>
       <!-- <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util.gui"/>
-      <plugin id="org.apache.batik.util"/>
-       --><plugin id="org.apache.commons.codec"/>
+      <plugin id="org.apache.batik.util"/> -->
+      <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.jxpath"/>
+      <plugin id="org.apache.commons.lang3" />
       <plugin id="org.apache.commons.logging"/>
       <plugin id="org.apache.felix.gogo.command"/>
       <plugin id="org.apache.felix.gogo.runtime"/>
@@ -113,8 +114,7 @@
       <plugin id="org.eclipse.e4.ui.workbench"/> -->
       <plugin id="org.eclipse.ecf.filetransfer"/>
       <plugin id="org.eclipse.ecf.identity"/>
-      <plugin id="org.eclipse.ecf.provider.filetransfer.httpclient4.ssl"/>
-      <plugin id="org.eclipse.ecf.provider.filetransfer.httpclient4"/>
+      <plugin id="org.eclipse.ecf.provider.filetransfer.httpclient45"/>
       <plugin id="org.eclipse.ecf.provider.filetransfer.ssl"/>
       <plugin id="org.eclipse.ecf.provider.filetransfer"/>
       <plugin id="org.eclipse.ecf.ssl"/>
@@ -168,8 +168,8 @@
       <!-- <plugin id="org.eclipse.equinox.p2.ui.importexport"/>
       <plugin id="org.eclipse.equinox.p2.ui.sdk.scheduler"/>
       <plugin id="org.eclipse.equinox.p2.ui.sdk"/>
-      <plugin id="org.eclipse.equinox.p2.ui"/>
-       --><plugin id="org.eclipse.equinox.p2.updatechecker"/>
+      <plugin id="org.eclipse.equinox.p2.ui"/> -->
+      <plugin id="org.eclipse.equinox.p2.updatechecker"/>
       <plugin id="org.eclipse.equinox.p2.updatesite"/>
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
@@ -238,8 +238,8 @@
       <plugin id="org.eclipse.pde.ua.core"/>
       <!-- <plugin id="org.eclipse.pde.ua.ui"/> -->
       <!-- <plugin id="org.eclipse.pde.ui.templates"/>
-      <plugin id="org.eclipse.pde.ui"/>
-       --><plugin id="org.eclipse.pde"/>
+      <plugin id="org.eclipse.pde.ui"/> -->
+      <plugin id="org.eclipse.pde"/>
       <!-- <plugin id="org.eclipse.platform.doc.user"/> -->
       <plugin id="org.eclipse.platform"/>
       <plugin id="org.eclipse.rcp"/>
@@ -304,6 +304,7 @@
       <plugin id="org.eclipse.rcptt.testrail"/>
       <plugin id="org.eclipse.rcptt.testrail.ecl"/>
       <plugin id="org.eclipse.rcptt.module.testrail.updates"/>
+      <plugin id="org.eclipse.rcptt.zephyr"/>
       <plugin id="org.eclipse.rcptt.tesla.nebula.ecl"/>
       <plugin id="org.eclipse.rcptt.tesla.nebula"/>
       <plugin id="org.eclipse.rcptt.tesla.recording.core.ecl"/>

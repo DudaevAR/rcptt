@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -18,7 +18,7 @@ package org.eclipse.rcptt.tesla.ecl.model;
  *
  *
  * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getExpand()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Expands a tree item. Item must be acquired by using <code>get-item</code> command. ' returns='value of <code>control</code> parameter' recorded='false' example='get-view \"Q7 Explorer\" | get-tree | get-item Project | expand'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Expands a tree item. Item must be acquired by using &lt;code&gt;get-item&lt;/code&gt; command. ' returns='value of &lt;code&gt;control&lt;/code&gt; parameter' recorded='false' example='get-view \"Q7 Explorer\" | get-tree | get-item Project | expand'"
  * @generated
  */
 public interface Expand extends ControlCommand {

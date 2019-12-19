@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see org.eclipse.rcptt.ecl.core.CorePackage#getGlobal()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Creates a new global variable declaration.' returns='An internal object, describing a variable' example='// declaring an empty list:\n\nglobal [val myList [list]]\n\n\n\n// filling the list with all New/... menu items:\n\nrepeat [val index] -times [get-elements-count] -command {\n\nlet [val oldlist [$myList]] [val itemName [get-item-property [$index] \"getText()\"]] {\n\n// check if the item is not separator or Other...\n\nif [and [$itemName | not-eq \"\"][$itemName | not-eq \"&Other.*\"]] {\n\nglobal [val myList [appendToList [$oldlist] [$itemName]]] -override\n\n}\n\n}\n\n}'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Creates a new global variable declaration.' returns='An internal object, describing a variable' example='// declaring an empty list:\n\nglobal [val myList [list]]\n\n\n\n// filling the list with all New/... menu items:\n\nrepeat [val index] -times [get-elements-count] -command {\n\nlet [val oldlist [$myList]] [val itemName [get-item-property [$index] \"getText()\"]] {\n\n// check if the item is not separator or Other...\n\nif [and [$itemName | not-eq \"\"][$itemName | not-eq \"&amp;Other.*\"]] {\n\nglobal [val myList [appendToList [$oldlist] [$itemName]]] -override\n\n}\n\n}\n\n}'"
  * @generated
  */
 public interface Global extends Command {

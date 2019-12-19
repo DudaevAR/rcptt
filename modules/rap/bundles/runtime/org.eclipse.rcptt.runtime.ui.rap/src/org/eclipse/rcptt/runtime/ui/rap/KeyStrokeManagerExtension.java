@@ -1,10 +1,10 @@
 /*******************************************************************************
  * /*******************************************************************************
- *  * Copyright (c) 2009, 2016 Xored Software Inc and others.
+ *  * Copyright (c) 2009, 2019 Xored Software Inc and others.
  *  * All rights reserved. This program and the accompanying materials
- *  * are made available under the terms of the Eclipse Public License v1.0
+ *  * are made available under the terms of the Eclipse Public License v2.0
  *  * which accompanies this distribution, and is available at
- *  * http://www.eclipse.org/legal/epl-v10.html
+ *  * https://www.eclipse.org/legal/epl-v20.html
  *  *
  *  * Contributors:
  *  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -17,17 +17,16 @@ import org.eclipse.jface.bindings.keys.formatting.KeyFormatterFactory;
 import org.eclipse.rcptt.tesla.recording.core.ecl.IKeyStrokeManagerExtension;
 
 public class KeyStrokeManagerExtension implements IKeyStrokeManagerExtension {
-
 	@Override
-	public String getMask(int val) {
-		String mask;
-		try {
-			KeyStroke key = KeyStroke.getInstance(val);
-			mask = formatModifier(key);
-		} catch (Throwable e) {
-			mask = getMeta(val);
+	public String getMetaKeys(int stateMask) {
+		String metaKeys = null;
+		if (stateMask != 0) {
+			metaKeys = formatKeyWithMeta(stateMask, 0, 0);
+			if (metaKeys.endsWith("+")) {
+				metaKeys = metaKeys.substring(0, metaKeys.length() - 1);
+			}
 		}
-		return mask;
+		return metaKeys;
 	}
 
 	@Override

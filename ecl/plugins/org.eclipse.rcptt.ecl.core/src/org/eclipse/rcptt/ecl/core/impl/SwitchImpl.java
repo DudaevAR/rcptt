@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -103,6 +103,7 @@ public class SwitchImpl extends CommandImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Case> getItems() {
 		if (items == null) {
 			items = new EObjectContainmentEList<Case>(Case.class, this, CorePackage.SWITCH__ITEMS);
@@ -115,6 +116,7 @@ public class SwitchImpl extends CommandImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Command getDefault() {
 		return default_;
 	}
@@ -139,6 +141,7 @@ public class SwitchImpl extends CommandImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefault(Command newDefault) {
 		if (newDefault != default_) {
 			NotificationChain msgs = null;
@@ -158,6 +161,7 @@ public class SwitchImpl extends CommandImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getInput() {
 		if (input != null && input.eIsProxy()) {
 			InternalEObject oldInput = (InternalEObject)input;
@@ -184,6 +188,7 @@ public class SwitchImpl extends CommandImpl implements Switch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInput(EObject newInput) {
 		EObject oldInput = input;
 		input = newInput;

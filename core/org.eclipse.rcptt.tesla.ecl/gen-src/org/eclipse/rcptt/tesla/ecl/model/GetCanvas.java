@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -18,7 +18,7 @@ package org.eclipse.rcptt.tesla.ecl.model;
  *
  *
  * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getGetCanvas()
- * @model annotation="http://www.eclipse.org/ecl/docs description='' returns='' recorded='true' example='with [get-editor CreateQ7Project | get-section Script | get-canvas] {<br>\r\n        mouse-press 24 53 button1<br>\r\n        mouse-release 24 53 button1 524288<br>\r\n    }'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='' returns='' recorded='true' example='with [get-editor CreateQ7Project | get-section Script | get-canvas] {&lt;br&gt;\r\n        mouse-press 24 53 button1&lt;br&gt;\r\n        mouse-release 24 53 button1 524288&lt;br&gt;\r\n    }'"
  * @generated
  */
 public interface GetCanvas extends Selector {

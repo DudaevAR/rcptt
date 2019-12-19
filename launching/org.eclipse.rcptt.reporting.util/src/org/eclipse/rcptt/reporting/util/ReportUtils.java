@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2016 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -36,7 +36,6 @@ import org.eclipse.rcptt.reporting.ReportingFactory;
 import org.eclipse.rcptt.reporting.core.IQ7ReportConstants;
 import org.eclipse.rcptt.reporting.core.SimpleSeverity;
 import org.eclipse.rcptt.reporting.util.internal.Plugin;
-import org.eclipse.rcptt.sherlock.core.model.sherlock.EclipseStatus;
 import org.eclipse.rcptt.sherlock.core.model.sherlock.report.Event;
 import org.eclipse.rcptt.sherlock.core.model.sherlock.report.EventSource;
 import org.eclipse.rcptt.sherlock.core.model.sherlock.report.Node;
@@ -438,8 +437,8 @@ public class ReportUtils {
 			}
 			EList<Event> events = item.getEvents();
 			for (Event event : events) {
-				if (event.getData() instanceof EclipseStatus) {
-					EclipseStatus data = (EclipseStatus) event.getData();
+				if (event.getData() instanceof ProcessStatus) {
+					ProcessStatus data = (ProcessStatus) event.getData();
 					new SimpleReportGenerator().toString(result, 1, data);
 					result.append("\n");
 				}

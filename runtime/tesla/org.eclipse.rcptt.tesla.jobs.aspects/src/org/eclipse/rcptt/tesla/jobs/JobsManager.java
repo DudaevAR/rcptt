@@ -1,19 +1,17 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
  *******************************************************************************/
 package org.eclipse.rcptt.tesla.jobs;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -25,7 +23,6 @@ public class JobsManager {
 	private Set<Job> asyncJobs = new HashSet<Job>();
 	private Set<Job> toNullifyTime = new HashSet<Job>();
 	private static JobsManager instance = null;
-	private static List<InternalJob> cancelled = new ArrayList<InternalJob>();
 	private static Map<InternalJob, Long> timeouts = new HashMap<InternalJob, Long>();
 
 	public synchronized void notifyJobDone(Job job, IStatus status,
@@ -72,22 +69,9 @@ public class JobsManager {
 		timeouts.remove(job);
 	}
 
-	public synchronized void notifyJobCancel(InternalJob job) {
-		cancelled.add(job);
-		timeouts.remove(job);
-	}
 
 	public synchronized void clean() {
 		toNullifyTime.clear();
-		cancelled.clear();
-	}
-
-	public synchronized void removeCanceled(Job job) {
-		cancelled.remove(job);
-	}
-
-	public synchronized boolean isCanceled(Job job) {
-		return cancelled.contains(job);
 	}
 
 	public synchronized Long getTimeout(Job job) {

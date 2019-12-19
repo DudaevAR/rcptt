@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -101,6 +101,7 @@ public class ForeachImpl extends CommandImpl implements Foreach {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Val getItem() {
 		return item;
 	}
@@ -125,6 +126,7 @@ public class ForeachImpl extends CommandImpl implements Foreach {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setItem(Val newItem) {
 		if (newItem != item) {
 			NotificationChain msgs = null;
@@ -144,6 +146,7 @@ public class ForeachImpl extends CommandImpl implements Foreach {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Val getIndex() {
 		if (index != null && index.eIsProxy()) {
 			InternalEObject oldIndex = (InternalEObject)index;
@@ -170,6 +173,7 @@ public class ForeachImpl extends CommandImpl implements Foreach {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIndex(Val newIndex) {
 		Val oldIndex = index;
 		index = newIndex;
@@ -181,6 +185,7 @@ public class ForeachImpl extends CommandImpl implements Foreach {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Command getDo() {
 		return do_;
 	}
@@ -203,6 +208,7 @@ public class ForeachImpl extends CommandImpl implements Foreach {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDo(Command newDo) {
 		if (newDo != do_) {
 			NotificationChain msgs = null;
@@ -221,6 +227,7 @@ public class ForeachImpl extends CommandImpl implements Foreach {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<EObject> getInput() {
 		if (input == null) {
 			input = new EObjectResolvingEList<EObject>(EObject.class, this, CorePackage.FOREACH__INPUT);

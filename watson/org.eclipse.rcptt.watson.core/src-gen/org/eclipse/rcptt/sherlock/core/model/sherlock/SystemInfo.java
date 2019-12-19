@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link org.eclipse.rcptt.sherlock.core.model.sherlock.SystemInfo#getOsName <em>Os Name</em>}</li>
  *   <li>{@link org.eclipse.rcptt.sherlock.core.model.sherlock.SystemInfo#getOsVersion <em>Os Version</em>}</li>
@@ -28,7 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.rcptt.sherlock.core.model.sherlock.SystemInfo#getUsername <em>Username</em>}</li>
  *   <li>{@link org.eclipse.rcptt.sherlock.core.model.sherlock.SystemInfo#getVariables <em>Variables</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.eclipse.rcptt.sherlock.core.model.sherlock.SherlockPackage#getSystemInfo()
  * @model

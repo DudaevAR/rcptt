@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -92,6 +92,7 @@ public class GetImpl extends CommandImpl implements Get {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getInput() {
 		return input;
 	}
@@ -116,6 +117,7 @@ public class GetImpl extends CommandImpl implements Get {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInput(EObject newInput) {
 		if (newInput != input) {
 			NotificationChain msgs = null;
@@ -135,6 +137,7 @@ public class GetImpl extends CommandImpl implements Get {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getKey() {
 		return key;
 	}
@@ -159,6 +162,7 @@ public class GetImpl extends CommandImpl implements Get {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(EObject newKey) {
 		if (newKey != key) {
 			NotificationChain msgs = null;
@@ -178,6 +182,7 @@ public class GetImpl extends CommandImpl implements Get {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject getDefault() {
 		return default_;
 	}
@@ -202,6 +207,7 @@ public class GetImpl extends CommandImpl implements Get {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefault(EObject newDefault) {
 		if (newDefault != default_) {
 			NotificationChain msgs = null;

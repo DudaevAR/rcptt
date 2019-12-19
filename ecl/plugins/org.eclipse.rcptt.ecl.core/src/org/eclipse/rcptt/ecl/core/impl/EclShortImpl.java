@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -77,6 +77,7 @@ public class EclShortImpl extends BoxedValueImpl implements EclShort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public short getValue() {
 		return value;
 	}
@@ -86,6 +87,7 @@ public class EclShortImpl extends BoxedValueImpl implements EclShort {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(short newValue) {
 		short oldValue = value;
 		value = newValue;
@@ -160,7 +162,7 @@ public class EclShortImpl extends BoxedValueImpl implements EclShort {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: ");
 		result.append(value);
 		result.append(')');

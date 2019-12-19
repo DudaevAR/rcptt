@@ -1,14 +1,18 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
  *******************************************************************************/
 package org.eclipse.rcptt.internal.runtime.ui;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
@@ -24,6 +28,17 @@ import org.eclipse.rcptt.tesla.swt.events.TeslaEventManager;
 
 public class SetOptionService implements ICommandService {
 
+	private final static Map<String, String> OPTION_SHIM;
+	
+	static {
+		// Map documented features to their internal ids
+		// Internal IDs are listed in org.eclipse.rcptt.tesla.core.TeslaLimits
+		HashMap<String, String> m = new HashMap<String, String>();
+		m.put("jobHangTimeout", "uijob.hang.timeout");
+		OPTION_SHIM = Collections.unmodifiableMap(m);
+	}
+	
+
 	public IStatus service(Command command, IProcess context)
 			throws InterruptedException, CoreException {
 		if (command instanceof SetOption) {
@@ -37,10 +52,16 @@ public class SetOptionService implements ICommandService {
 	}
 
 	private static void applyOption(String name, String value) {
-		new OptionsHandler().applyOption(name, value);
+		String id = OPTION_SHIM.get(name);
+		if (id == null)
+			id = name;
+		new OptionsHandler().applyOption(id, value);
+		
 		if (name.equals(TeslaFeatures.STATUS_DIALOG_ALLOWED)) {
 			TeslaEventManager.getManager().setStatusDialogModeAllowed(Boolean.valueOf(value));
 		}
 	}
+		
+	
 
 }

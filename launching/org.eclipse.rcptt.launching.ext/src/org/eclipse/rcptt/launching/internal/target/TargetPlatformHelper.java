@@ -24,7 +24,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -405,12 +404,7 @@ public class TargetPlatformHelper implements ITargetPlatformHelper {
 		}
 		List<URI> uris = new ArrayList<URI>();
 		for (TargetBundle bundle : bundles) {
-			try {
-				uris.add(new URL("file://"
-						+ bundle.getBundleInfo().getLocation().getPath()).toURI());
-			} catch (URISyntaxException | MalformedURLException e) {
-				Q7ExtLaunchingPlugin.getDefault().log(e);
-			}
+			uris.add(bundle.getBundleInfo().getLocation());
 		}
 
 		PDEState state = new PDEState(uris.toArray(new URI[uris
@@ -1039,12 +1033,15 @@ public class TargetPlatformHelper implements ITargetPlatformHelper {
 		}
 
 		removeUnsupportedVMArgs(lines);
+		addUnresolvedVMArgs(lines);
 
 		return Q7LaunchDelegateUtils.joinCommandArgs(lines);
 	}
 
 	private static final String VMARG_ADD_MODULES = "--add-modules";
 	private static final String VMARG_PERMIT_ILLEGAL_ACCESS = "--permit-illegal-access";
+	private static final String VMARG_ADD_OPENS = "--add-opens";
+	private static final String VMARG_ALL_UNNAMED = "ALL-UNNAMED";
 
 	private void removeUnsupportedVMArgs(List<String> lines) {
 		String[] javaVersions = getJavaVersions();
@@ -1057,8 +1054,20 @@ public class TargetPlatformHelper implements ITargetPlatformHelper {
 			while (iterator.hasNext()) {
 				String line = iterator.next();
 				if (line.startsWith(VMARG_ADD_MODULES)
-						|| line.startsWith(VMARG_PERMIT_ILLEGAL_ACCESS)) {
+						|| line.startsWith(VMARG_PERMIT_ILLEGAL_ACCESS)
+						|| line.startsWith(VMARG_ADD_OPENS)) {
 					iterator.remove();
+				}
+			}
+		}
+	}
+
+	private void addUnresolvedVMArgs(List<String> lines) {
+		int startIndex = lines.indexOf(VMARG_ADD_OPENS);
+		if (startIndex != -1) {		
+			for (int i = startIndex; i < lines.size(); i++) {
+				if (lines.get(i).contains(VMARG_ALL_UNNAMED) && !lines.get(i-1).startsWith(VMARG_ADD_OPENS)) {
+					lines.add(i, VMARG_ADD_OPENS);
 				}
 			}
 		}
@@ -1355,6 +1364,7 @@ public class TargetPlatformHelper implements ITargetPlatformHelper {
 		return AUTInformation.getInformationMap(target);
 	}
 
+	private static final String INTERNAL_ARCH_I386 = "i386"; //$NON-NLS-1$
 	private static final String PROP_CONFIG_AREA = "osgi.configuration.area"; //$NON-NLS-1$
 	private static final String PROP_SHARED_CONFIG_AREA = "osgi.sharedConfiguration.area"; //$NON-NLS-1$
 	private static final String PROP_CONFIG_CASCADED = "osgi.configuration.cascaded"; //$NON-NLS-1$
@@ -1773,7 +1783,7 @@ public class TargetPlatformHelper implements ITargetPlatformHelper {
 			return osgiArch;
 		String name = System.getProperties().getProperty("os.arch");//$NON-NLS-1$
 		// Map i386 architecture to x86
-		if (name.equalsIgnoreCase(Constants.INTERNAL_ARCH_I386))
+		if (name.equalsIgnoreCase(INTERNAL_ARCH_I386))
 			return Constants.ARCH_X86;
 		// Map amd64 architecture to x86_64
 		else if (name.equalsIgnoreCase(Constants.INTERNAL_AMD64))

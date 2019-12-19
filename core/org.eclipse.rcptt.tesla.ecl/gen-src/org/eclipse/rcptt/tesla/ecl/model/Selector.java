@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -44,7 +44,7 @@ public interface Selector extends Command {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getSelector_Id()
-	 * @model
+	 * @model annotation="http://www.eclipse.org/ecl/internal"
 	 * @generated
 	 */
 	String getId();
@@ -122,7 +122,8 @@ public interface Selector extends Command {
 	 * @return the value of the '<em>Parent</em>' reference.
 	 * @see #setParent(ControlHandler)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getSelector_Parent()
-	 * @model annotation="http://www.eclipse.org/ecl/docs description=''"
+	 * @model annotation="http://www.eclipse.org/ecl/input"
+	 *        annotation="http://www.eclipse.org/ecl/docs description=''"
 	 * @generated
 	 */
 	ControlHandler getParent();

@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2016 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -1017,7 +1017,7 @@ public class SWTEventRecorder implements IRecordingProcessor, IExtendedSWTEventL
 				FindResult result = getLocator().findElement(widget, true, false, false);
 				if (((MenuItem) widget).getSelection() && result != null && result.element != null) {
 					ControlUIElement e = new ControlUIElement(result.element, getRecorder());
-					e.clickAndWait(type == SWT.DefaultSelection);
+					e.clickAndWait(type == SWT.DefaultSelection, event.stateMask);
 				}
 			} else if ((isMenuItem || isWidgetSendSelectionNonWin32 || isRunDefferedEventsOSX || isButtonFocusEvent
 					|| isCheckable || isListTreeTableActivate || isToolItem)
@@ -1055,7 +1055,7 @@ public class SWTEventRecorder implements IRecordingProcessor, IExtendedSWTEventL
 								} else if (widget instanceof Button && (widget.getStyle() & SWT.CHECK) != 0) {
 									e.check(((Button) widget).getSelection());
 								} else {
-									e.clickAndWait(type == SWT.DefaultSelection);
+									e.clickAndWait(type == SWT.DefaultSelection, event.stateMask);
 								}
 							}
 						}

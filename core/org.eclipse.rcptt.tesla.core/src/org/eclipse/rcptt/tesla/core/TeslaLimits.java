@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -176,15 +176,15 @@ public class TeslaLimits {
 		return getIntValue(CONTEXTS_WAITFORJOBS_TIMEOUT);
 	}
 
-	public static long getStepModeEnableTimeout() {
+	public static int getStepModeEnableTimeout() {
 		return getIntValue(JOB_STEPMODE_ENABLE_TIMEOUT);
 	}
 
-	public static long getStepModeStepTime() {
+	public static int getStepModeStepTime() {
 		return getIntValue(JOB_STEPMODE_STEP_TIME);
 	}
 
-	public static long getStepModeTimeout() {
+	public static int getStepModeTimeout() {
 		return getIntValue(JOB_STEPMODE_TIMEOUT);
 	}
 

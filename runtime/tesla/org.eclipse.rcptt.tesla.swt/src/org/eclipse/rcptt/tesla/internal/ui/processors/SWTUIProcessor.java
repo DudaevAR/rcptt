@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2016 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -188,6 +188,7 @@ import org.eclipse.rcptt.tesla.ui.describers.IWidgetDescriber;
 import org.eclipse.rcptt.tesla.ui.describers.WidgetDescriber;
 import org.eclipse.rcptt.util.ShellUtilsProvider;
 import org.eclipse.rcptt.util.StringUtils;
+import org.eclipse.rcptt.util.swt.Events;
 import org.eclipse.rcptt.util.swt.StringLines;
 import org.eclipse.rcptt.util.swt.TableTreeUtil;
 import org.eclipse.swt.SWT;
@@ -2397,8 +2398,7 @@ public class SWTUIProcessor implements ITeslaCommandProcessor,
 				response.setStatus(ResponseStatus.FAILED);
 			}
 			else {
-				getPlayer().click(element, command.isDefault(), false,
-						command.isArrow());
+				getPlayer().click(element, command.isDefault(), false, command.isArrow(), command.getMetaKeys());
 			}
 		}
 		else if (ElementKind.Perspective.toString().equals(
@@ -2442,7 +2442,7 @@ public class SWTUIProcessor implements ITeslaCommandProcessor,
 				response.setStatus(ResponseStatus.FAILED);
 			}
 			else {
-				getPlayer().click(element, false, true, false);
+				getPlayer().click(element, false, true, false, Events.EMPTY_MASK);
 			}
 		}
 		else {

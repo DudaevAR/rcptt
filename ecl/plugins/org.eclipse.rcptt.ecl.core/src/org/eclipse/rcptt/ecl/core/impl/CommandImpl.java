@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -99,6 +99,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getHost() {
 		return host;
 	}
@@ -108,6 +109,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHost(String newHost) {
 		String oldHost = host;
 		host = newHost;
@@ -120,6 +122,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Binding> getBindings() {
 		if (bindings == null) {
 			bindings = new EObjectContainmentEList<Binding>(Binding.class, this, CorePackage.COMMAND__BINDINGS);
@@ -220,7 +223,7 @@ public class CommandImpl extends EObjectImpl implements Command {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (host: ");
 		result.append(host);
 		result.append(')');

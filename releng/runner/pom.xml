@@ -2,9 +2,9 @@
 <!--
     Copyright (c) 2009, 2019 Xored Software Inc and others.
     All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
+    are made available under the terms of the Eclipse Public License v2.0
     which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
+    https://www.eclipse.org/legal/epl-v20.html
 
     Contributors:
     	Xored Software Inc - initial API and implementation and/or initial documentation
@@ -17,7 +17,7 @@
   <parent>
     <groupId>org.eclipse.rcptt</groupId>
     <artifactId>core</artifactId>
-    <version>2.4.3-SNAPSHOT</version>
+    <version>2.5.0-SNAPSHOT</version>
     <relativePath>../core/pom.xml</relativePath>
   </parent>
   <modules>
@@ -30,14 +30,14 @@
   </properties>
   <repositories>
     <repository>
-      <id>2019-06-updates</id>
+      <id>2019-12-milestones</id>
       <layout>p2</layout>
-      <url>http://download.eclipse.org/eclipse/updates/4.12milestones</url>
+      <url>http://download.eclipse.org/eclipse/updates/4.14milestones</url>
     </repository>
     <repository>
-      <id>2019-03</id>
+      <id>2019-12</id>
       <layout>p2</layout>
-      <url>http://download.eclipse.org/releases/2019-03</url>
+      <url>http://download.eclipse.org/releases/2019-12</url>
     </repository>
     <repository>
       <id>orbit</id>

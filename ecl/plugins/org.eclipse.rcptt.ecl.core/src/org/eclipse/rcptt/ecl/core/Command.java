@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -43,7 +43,7 @@ public interface Command extends EObject {
 	 * @return the value of the '<em>Host</em>' attribute.
 	 * @see #setHost(String)
 	 * @see org.eclipse.rcptt.ecl.core.CorePackage#getCommand_Host()
-	 * @model
+	 * @model annotation="http://www.eclipse.org/ecl/internal"
 	 * @generated
 	 */
 	String getHost();
@@ -70,6 +70,7 @@ public interface Command extends EObject {
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
 	 * @see org.eclipse.rcptt.ecl.core.CorePackage#getCommand_Bindings()
 	 * @model containment="true"
+	 *        annotation="http://www.eclipse.org/ecl/internal"
 	 * @generated
 	 */
 	EList<Binding> getBindings();

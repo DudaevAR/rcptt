@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -28,7 +28,7 @@ import org.eclipse.rcptt.ecl.core.Command;
  * </ul>
  *
  * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getMatches()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Checks if <code>input</code> matches to a regular expression <code>value</code>' input='Result of <code>get-property</code> command' example='get-editor TestCase1 | get-editbox | get-property value | matches \"\\\\d+\" | verify-true'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Checks if &lt;code&gt;input&lt;/code&gt; matches to a regular expression &lt;code&gt;value&lt;/code&gt;' input='Result of &lt;code&gt;get-property&lt;/code&gt; command' example='get-editor TestCase1 | get-editbox | get-property value | matches \"\\\\d+\" | verify-true'"
  * @generated
  */
 public interface Matches extends Command {
@@ -44,6 +44,7 @@ public interface Matches extends Command {
 	 * @see #setInput(EObject)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getMatches_Input()
 	 * @model required="true"
+	 *        annotation="http://www.eclipse.org/ecl/input"
 	 * @generated
 	 */
 	EObject getInput();

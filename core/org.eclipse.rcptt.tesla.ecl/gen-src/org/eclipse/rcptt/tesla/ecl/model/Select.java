@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2015 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -30,7 +30,7 @@ import org.eclipse.rcptt.ecl.core.Command;
  * </ul>
  *
  * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getSelect()
- * @model annotation="http://www.eclipse.org/ecl/docs description='Selects items.' returns='value of <code>control</code> parameter' example='get-view \"Q7 Explorer\" | get-tree | select \"TestQ7Prj/Test scenario\" | double-click'"
+ * @model annotation="http://www.eclipse.org/ecl/docs description='Selects items.' returns='value of &lt;code&gt;control&lt;/code&gt; parameter' example='get-view \"Q7 Explorer\" | get-tree | select \"TestQ7Prj/Test scenario\" | double-click'"
  * @generated
  */
 public interface Select extends Command {
@@ -46,6 +46,7 @@ public interface Select extends Command {
 	 * @see #setControl(ControlHandler)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getSelect_Control()
 	 * @model required="true"
+	 *        annotation="http://www.eclipse.org/ecl/input"
 	 *        annotation="http://www.eclipse.org/ecl/docs description='Table, list or tree.'"
 	 * @generated
 	 */
@@ -92,7 +93,7 @@ public interface Select extends Command {
 	 * @see #setAll(boolean)
 	 * @see org.eclipse.rcptt.tesla.ecl.model.TeslaPackage#getSelect_All()
 	 * @model default="false"
-	 *        annotation="http://www.eclipse.org/ecl/docs description='If true, command selects all items matched by provided regular expression. For Example, <code>get-tree | select \"Foo.\052/Bar.*\" -all</code> will select all items starting with \"Bar\", if their parents starts with \"Foo\".'"
+	 *        annotation="http://www.eclipse.org/ecl/docs description='If true, command selects all items matched by provided regular expression. For Example, &lt;code&gt;get-tree | select \"Foo.\052/Bar.*\" -all&lt;/code&gt; will select all items starting with \"Bar\", if their parents starts with \"Foo\".'"
 	 * @generated
 	 */
 	boolean isAll();

@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2016 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -469,13 +469,22 @@ public interface ProtocolPackage extends EPackage {
 	int CLICK__ARROW = ELEMENT_COMMAND_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Meta Keys</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLICK__META_KEYS = ELEMENT_COMMAND_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Click</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLICK_FEATURE_COUNT = ELEMENT_COMMAND_FEATURE_COUNT + 3;
+	int CLICK_FEATURE_COUNT = ELEMENT_COMMAND_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.rcptt.tesla.core.protocol.impl.DoubleClickImpl <em>Double Click</em>}' class.
@@ -5930,6 +5939,17 @@ public interface ProtocolPackage extends EPackage {
 	EAttribute getClick_Arrow();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.rcptt.tesla.core.protocol.Click#getMetaKeys <em>Meta Keys</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Meta Keys</em>'.
+	 * @see org.eclipse.rcptt.tesla.core.protocol.Click#getMetaKeys()
+	 * @see #getClick()
+	 * @generated
+	 */
+	EAttribute getClick_MetaKeys();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.rcptt.tesla.core.protocol.DoubleClick <em>Double Click</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8919,6 +8939,14 @@ public interface ProtocolPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLICK__ARROW = eINSTANCE.getClick_Arrow();
+
+		/**
+		 * The meta object literal for the '<em><b>Meta Keys</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLICK__META_KEYS = eINSTANCE.getClick_MetaKeys();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.rcptt.tesla.core.protocol.impl.DoubleClickImpl <em>Double Click</em>}' class.

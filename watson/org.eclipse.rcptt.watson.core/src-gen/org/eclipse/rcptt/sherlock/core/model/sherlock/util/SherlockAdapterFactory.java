@@ -1,9 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2014 Xored Software Inc and others.
+ * Copyright (c) 2009, 2019 Xored Software Inc and others.
  * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
+ * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * https://www.eclipse.org/legal/epl-v20.html
  *
  * Contributors:
  *     Xored Software Inc - initial API and implementation and/or initial documentation
@@ -102,18 +102,6 @@ public class SherlockAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEclipseFeature(EclipseFeature object) {
 				return createEclipseFeatureAdapter();
-			}
-			@Override
-			public Adapter caseJavaException(JavaException object) {
-				return createJavaExceptionAdapter();
-			}
-			@Override
-			public Adapter caseJavaStackTraceEntry(JavaStackTraceEntry object) {
-				return createJavaStackTraceEntryAdapter();
-			}
-			@Override
-			public Adapter caseEclipseStatus(EclipseStatus object) {
-				return createEclipseStatusAdapter();
 			}
 			@Override
 			public Adapter caseEclipsePreference(EclipsePreference object) {
@@ -234,48 +222,6 @@ public class SherlockAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEclipseFeatureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.rcptt.sherlock.core.model.sherlock.JavaException <em>Java Exception</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.rcptt.sherlock.core.model.sherlock.JavaException
-	 * @generated
-	 */
-	public Adapter createJavaExceptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.rcptt.sherlock.core.model.sherlock.JavaStackTraceEntry <em>Java Stack Trace Entry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.rcptt.sherlock.core.model.sherlock.JavaStackTraceEntry
-	 * @generated
-	 */
-	public Adapter createJavaStackTraceEntryAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.rcptt.sherlock.core.model.sherlock.EclipseStatus <em>Eclipse Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.rcptt.sherlock.core.model.sherlock.EclipseStatus
-	 * @generated
-	 */
-	public Adapter createEclipseStatusAdapter() {
 		return null;
 	}
 
